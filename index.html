@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="myform">
+            Name :<input type="text" id="name" autocomplete="off" required="required"><br/>
+            Roll :<input type="number" id="roll" autocomplete="off" required="required"><br/>
+            <input type="submit" value="Submit"id="btn"/>
+        </form>
+    </div>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Roll</td>
+        </tr>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script>
+        let btn=document.getElementById('btn');
+        btn.onclick=fun;
+        function fun(e){
+            e.preventDefault();
+            let tbody=document.getElementById('tbody');
+            let name=document.getElementById('name').value;
+            let roll=document.getElementById('roll').value;
+            if(name==='' || roll ===''){
+                window.alert("Plz fill data");
+            }
+            else{
+                tbody.innerHTML+=`
+            <tr>
+               <td>${name}</td> 
+               <td>${roll}</td> 
+            </tr>
+            `;
+            document.getElementById('name').value='';
+            document.getElementById('roll').value='';
+            }
+        }
+    </script>
+</body>
+</html>
